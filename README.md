@@ -106,8 +106,8 @@ There is a dark/light toggle in the nav. Each page has a designed default, and a
    authorized redirect URI is `https://<project-ref>.supabase.co/auth/v1/callback`.
 3. Supabase > Authentication > URL Configuration:
    - **Site URL:** your production URL.
-   - **Redirect URLs:** `http://localhost:3000/auth/callback` and `https://<your-domain>/auth/callback`
-     for every domain you deploy to.
+   - **Redirect URLs:** `http://localhost:3000/**` and `https://<your-domain>/**` for every domain you deploy to
+     (the `/**` matters: the callback carries `?as=merchant|customer`).
 4. Environment variables (`.env.local` locally, and the host's settings):
 
 | Variable | Where from | Exposed to browser? |
@@ -179,36 +179,17 @@ their shop's. Polling every few seconds stays on as a fallback.
 - The decision log stores no customer data.
 - Errors never echo request text.
 
-## Deploy
+## Deploy (Vercel)
 
-**Netlify (live: https://ascendex-commerce.netlify.app):** don't drag and drop the folder.
-Drag and drop uploads static files only, so `/decide` and `/api/*` would not exist. To redeploy
-from this folder (it is already linked to the site in `.netlify/state.json`):
+1. Import the GitHub repo in Vercel. The repo root is this folder, so leave *Root Directory* as `./`.
+2. *Settings > Environment Variables*: add the four Supabase variables (and `ANTHROPIC_API_KEY` if used),
+   then redeploy.
+3. Supabase > Authentication > URL Configuration:
+   - **Site URL:** `https://<project>.vercel.app`
+   - **Redirect URLs:** `https://<project>.vercel.app/**` and `http://localhost:3000/**`
+4. Every `git push origin main` redeploys automatically.
 
-```bash
-npx netlify-cli deploy --build --prod
-```
-
-On Windows, stop `npm run dev` / `next start` first. Netlify's Next.js plugin renames `.next`, and
-a running server keeps files there open ("Failed publishing static content").
-
-Or connect the repo for automatic deploys. If the repo root is the parent folder, set *Base directory* to `web`.
-`netlify.toml` already sets the build. Next.js is detected automatically: pages are static, and
-`/decide` plus `/api/*` run as functions.
-
-**Vercel:** import the repo and set *Root Directory* to `web`. No other configuration is needed. Add
-the four Supabase variables in *Settings > Environment Variables*, then add `https://<project>.vercel.app/auth/callback`
-to the Supabase redirect URLs.
-
-Environment variables are all optional (see `.env.example`):
-
-| Variable | Effect |
-|---|---|
-| `ANTHROPIC_API_KEY` | Enables model-written copy (`?llm=1`, Lab toggle). |
-| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Google sign-in and realtime. |
-| `SUPABASE_URL`, `SUPABASE_SECRET_KEY` | Database: profiles, claims, rules, decision log. |
-
-`GET /api/health` reports which of these are active.
+Check `https://<project>.vercel.app/api/health`: `login` and `database` should both be `true`.
 
 ## Data
 

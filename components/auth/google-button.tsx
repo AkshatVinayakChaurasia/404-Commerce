@@ -3,8 +3,11 @@
 import { useState } from "react";
 import { supabaseBrowser } from "@/lib/supabase/client";
 
-/** Starts Google sign-in; after it, the user lands on `next`. */
-export function GoogleButton({ next, label }: { next: string; label: string }) {
+/**
+ * Starts Google sign-in. The return address is always this site's own origin, so a
+ * Vercel login comes back to Vercel. `as` is the role the person said they are.
+ */
+export function GoogleButton({ as, label }: { as: "customer" | "merchant"; label: string }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,7 +21,7 @@ export function GoogleButton({ next, label }: { next: string; label: string }) {
     setError(null);
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}` },
+      options: { redirectTo: `${window.location.origin}/auth/callback?as=${as}` },
     });
     if (error) {
       setBusy(false);

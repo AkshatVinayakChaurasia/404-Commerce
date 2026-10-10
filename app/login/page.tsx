@@ -54,7 +54,7 @@ export default function LoginPage({ searchParams }: PageProps<"/login">) {
                 <li>You choose if you get offers at all</li>
               </ul>
               <div className="mt-6">
-                <GoogleButton next="/onboarding?as=customer" label="Continue with Google" />
+                <GoogleButton as="customer" label="Continue with Google" />
               </div>
             </section>
             <section className="flex flex-col rounded-[var(--radius-panel)] border border-line bg-surface p-6 sm:p-8">
@@ -65,7 +65,7 @@ export default function LoginPage({ searchParams }: PageProps<"/login">) {
                 <li>Redeem codes at the counter, live</li>
               </ul>
               <div className="mt-6">
-                <GoogleButton next="/onboarding?as=merchant" label="Continue with Google" />
+                <GoogleButton as="merchant" label="Continue with Google" />
               </div>
             </section>
           </div>

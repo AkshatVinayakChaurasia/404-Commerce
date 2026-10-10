@@ -7,8 +7,8 @@ export const THEME_KEY = "ascendex-theme";
 /** Applies a saved dark/light choice before paint, so it never flashes. */
 export const THEME_BOOT = `(function(){try{var t=localStorage.getItem("${THEME_KEY}");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`;
 
-// Some hosts inject a comment into <head> at serve time (Netlify adds "This site
-// is hosted on Netlify..." right after <meta charset>). React hydrates <head>,
+// Some hosts and proxies inject a comment into <head> at serve time (one we
+// deployed to added a "this site is hosted on..." note after <meta charset>). React hydrates <head>,
 // sees a node it never rendered, and throws hydration error #418, re-rendering the
 // whole page on the client. React itself puts no comments or whitespace text in
 // <head>, so this inline script, which runs before hydration, removes exactly

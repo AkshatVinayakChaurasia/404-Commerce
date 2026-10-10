@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/nav";
+import { RoleGate } from "@/components/auth/role-gate";
 import { MerchantDashboard } from "@/components/merchant/merchant";
 import { dataset } from "@/lib/official/adapter";
 
@@ -17,6 +18,7 @@ export default function MerchantPage() {
       <Nav theme="light" />
       <main>
         <MerchantDashboard merchants={merchants} />
+        <RoleGate role="merchant" />
       </main>
     </div>
   );

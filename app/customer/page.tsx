@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/nav";
+import { RoleGate } from "@/components/auth/role-gate";
 import { CustomerApp } from "@/components/customer/customer";
 import { dataset } from "@/lib/official/adapter";
 import { haversineM } from "@/lib/engine/util";
@@ -26,6 +27,7 @@ export default function CustomerPage() {
       <Nav theme="light" />
       <main>
         <CustomerApp customers={customers} />
+        <RoleGate role="customer" />
       </main>
     </div>
   );
