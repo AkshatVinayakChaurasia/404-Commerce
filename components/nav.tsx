@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./logo";
+import { ThemeToggle } from "./theme-toggle";
+import { AccountMenu } from "./auth/account-menu";
 
 const LINKS = [
   { href: "/lab", label: "Decision Lab" },
@@ -10,10 +12,10 @@ const LINKS = [
   { href: "/merchant", label: "Merchant" },
 ];
 
-export function Nav() {
+export function Nav({ theme }: { theme: "dark" | "light" }) {
   const path = usePathname();
   return (
-    <header className="mx-auto flex w-full max-w-[1240px] flex-wrap items-center gap-x-8 gap-y-3 px-4 py-5 sm:px-8">
+    <header className="mx-auto flex w-full max-w-[1240px] flex-wrap items-center gap-x-6 gap-y-3 px-4 py-5 sm:px-8">
       <Link href="/" aria-label="AscenDex home" className="mr-auto">
         <Logo />
       </Link>
@@ -34,9 +36,11 @@ export function Nav() {
           );
         })}
       </nav>
+      <ThemeToggle pageDefault={theme} />
+      <AccountMenu />
       <Link
         href="/lab"
-        className="rounded-full bg-accent px-4 py-2 text-[15px] font-semibold text-on-accent transition-transform active:scale-[0.97]"
+        className="hidden rounded-full bg-accent px-4 py-2 text-[15px] font-semibold text-on-accent transition-transform active:scale-[0.97] lg:inline-flex"
       >
         Open the lab
       </Link>

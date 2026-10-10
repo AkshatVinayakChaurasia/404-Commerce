@@ -1,7 +1,7 @@
 // The heuristic response model. These weights are starting hypotheses (see
 // blueprint, Phase 2) and are the one place to tune once real outcome data lands.
 
-import type { Item, Merchant, Weather } from "./types";
+import type { Festival, Item, Merchant, Weather } from "./types";
 import { clamp, logit, sigmoid } from "./util";
 
 export const WEIGHTS = {
@@ -20,7 +20,14 @@ export const SEND_COST = 1.5;
  * cost. Below it, the gain is noise and the notification only teaches people to
  * ignore us.
  */
-export const MIN_UPLIFT = 4;
+export const MIN_UPLIFT = 2.5;
+
+/**
+ * A relevant, well-timed notification lifts intent even at full price (the person
+ * learns the option exists). Logit units. This is what makes a 0% "invitation"
+ * worth sending to someone who wasn't going to buy, and not to someone who was.
+ */
+export const NOTIFY_LIFT = 0.5;
 
 /** Margin assumed when the merchant gives neither margin nor cost. Deliberately low. */
 export const ASSUMED_MARGIN = 0.2;
@@ -35,17 +42,25 @@ export function marginOf(item: Item): { margin: number; assumed: boolean } {
   return { margin: ASSUMED_MARGIN, assumed: true };
 }
 
+export const isRainy = (w: Weather) => ["rain", "heavy_rain", "light_rain", "drizzle", "storm"].includes(w.condition);
+export const isHot = (w: Weather) => w.temp_c >= 30 || w.condition === "hot";
+
 export function contextBoost(
   item: Item,
   merchant: Merchant,
   weather: Weather,
   minutes: number,
+  festival?: Festival,
 ): { value: number; note: string } {
   const tags = item.tags ?? [];
   const notes: string[] = [];
   let v = 0;
-  const hot = weather.temp_c >= 30;
-  const rainy = weather.condition === "rain" || weather.condition === "heavy_rain";
+  const hot = isHot(weather);
+  const rainy = isRainy(weather);
+  if (festival && festival.categories.includes(merchant.category)) {
+    v += 0.3;
+    notes.push(festival.name);
+  }
 
   if (hot && tags.includes("cold")) {
     v += 0.7;
@@ -106,7 +121,8 @@ export function priceSlope(sensitivity: number, habit: number): number {
   return (2 + 7 * clamp(sensitivity, 0, 1)) * (1 - 0.6 * clamp(habit, 0, 1));
 }
 
-export function pWithDiscount(pBase: number, pct: number, slope: number): number {
-  if (pct <= 0) return pBase;
-  return clamp(sigmoid(logit(pBase) + (slope * pct) / 100), 0.01, 0.99);
+/** Purchase odds once notified. Regulars already know the menu, so the awareness lift fades with habit. */
+export function pWithDiscount(pBase: number, pct: number, slope: number, habit = 0): number {
+  const lift = NOTIFY_LIFT * (1 - clamp(habit, 0, 1));
+  return clamp(sigmoid(logit(pBase) + lift + (slope * pct) / 100), 0.01, 0.99);
 }

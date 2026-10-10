@@ -7,6 +7,7 @@ import type {
   Check,
   Economics,
   Item,
+  Lang,
   Merchant,
   Offer,
   Scenario,
@@ -32,15 +33,20 @@ import {
   SEND_COST,
   baseProbability,
   contextBoost,
+  isHot,
+  isRainy,
   marginOf,
   pWithDiscount,
   priceSlope,
 } from "./model";
+import { SENSITIVE_CATEGORIES, cleanText, cleanWeather } from "../security";
 
 /** No one walks more than this for an impulse offer. */
 export const MAX_WALK_MIN = 15;
-/** Minutes needed at the counter, on top of walking there and back. */
-const SERVICE_MIN = 10;
+/** Default minutes at the counter when an item has no prep time. */
+const DEFAULT_PREP_MIN = 8;
+/** Paying and picking up. */
+const HANDOFF_MIN = 2;
 const TIER_STEP = 5;
 
 const now = () => (typeof performance !== "undefined" ? performance.now() : Date.now());
@@ -52,13 +58,17 @@ export type Decision = Omit<SolveResult, "notification" | "latency_ms"> & {
 /** Every fact the copy writer is allowed to mention. Nothing else may appear. */
 export type CopyFacts = {
   user_name: string;
-  language: "hinglish" | "en";
+  language: Lang;
   merchant_name: string;
   item_name: string;
   base_price: number;
   final_price: number;
   discount_pct: number;
   walk_minutes: number;
+  /** Beyond walking range (evaluator policy): the copy must not mention a walk. */
+  remote?: boolean;
+  /** Health-adjacent category: no personal framing that could imply a need. */
+  sensitive?: boolean;
   valid_until_clock: string;
   temp_c: number;
   weather: string;
@@ -89,7 +99,8 @@ export function decide(s: Scenario): Decision {
   let t0 = now();
   const local = parseLocal(s?.now);
   const user = s?.user;
-  const weather = s?.context?.weather;
+  const rawWeather = s?.context?.weather;
+  const weather = rawWeather ? { ...rawWeather, condition: cleanWeather(rawWeather.condition) } : undefined;
   const userChecks: Check[] = [
     {
       rule: "Readable time",
@@ -134,10 +145,19 @@ export function decide(s: Scenario): Decision {
   const freeMinutes = Number.isNaN(freeUntil) ? Infinity : (freeUntil - t + 1440) % 1440;
   const wallet = typeof user.wallet_inr === "number" ? user.wallet_inr : Infinity;
   const veg = (user.diet ?? []).includes("veg");
+  const policy = s.context.policy ?? {};
+  const remoteOk = policy.remote_invitation === true;
+  const minUplift = policy.min_uplift ?? MIN_UPLIFT;
 
   // ── Phase 1b: hard constraints per merchant ────────────────────────────
   t0 = now();
-  const merchants = Array.isArray(s.merchants) ? s.merchants : [];
+  // Names are display data from the request: strip markup and bound length before
+  // they can reach a notification or the language model.
+  const merchants = (Array.isArray(s.merchants) ? s.merchants : []).map((m) => ({
+    ...m,
+    name: cleanText(m?.name, 60),
+    items: (Array.isArray(m?.items) ? m.items : []).map((i) => ({ ...i, name: cleanText(i?.name, 60) })),
+  }));
   const open: { m: Merchant; walk: number; dist: number; windowEnd: number }[] = [];
   for (const m of merchants) {
     const dist = m?.location ? haversineM(user.location, m.location) : NaN;
@@ -185,27 +205,27 @@ export function decide(s: Scenario): Decision {
       detail: inStock > 0 ? `${inStock} of ${m.items.length} items available` : "everything sold out",
     });
 
-    const maxD = Number(m?.max_discount_pct ?? 0);
-    checks.push({
-      rule: "Discount allowed",
-      ok: maxD >= TIER_STEP,
-      detail: maxD >= TIER_STEP ? `up to ${maxD}%` : "owner allows no discount",
-    });
-
     const radiusOk = Number.isFinite(walk) && walk <= MAX_WALK_MIN;
+    const remote = remoteOk && Number.isFinite(walk) && !radiusOk;
     checks.push({
       rule: "Walkable",
-      ok: radiusOk,
-      detail: Number.isFinite(walk) ? `${Math.round(dist)} m, ${round(walk, 1)} min walk` : "no location",
+      ok: radiusOk || remote,
+      detail: remote
+        ? `${Math.round(dist)} m away: an invitation for later, not a walk-in (scenario context)`
+        : Number.isFinite(walk)
+          ? `${Math.round(dist)} m, ${round(walk, 1)} min walk`
+          : "no location",
     });
 
-    const roundTrip = walk * 2 + SERVICE_MIN;
-    const fits = roundTrip <= freeMinutes;
-    if (Number.isFinite(freeMinutes)) {
+    const quickest = Math.min(...(m?.items ?? []).filter((i) => i.stock > 0).map((i) => i.prep_min ?? DEFAULT_PREP_MIN), Infinity);
+    // Free time must cover the walk there, preparation and the handoff.
+    const needed = walk + (Number.isFinite(quickest) ? quickest : DEFAULT_PREP_MIN) + HANDOFF_MIN;
+    const fits = needed <= freeMinutes;
+    if (Number.isFinite(freeMinutes) && !remote) {
       checks.push({
         rule: "Fits free time",
         ok: fits,
-        detail: `needs ${Math.ceil(roundTrip)} min, has ${freeMinutes} min`,
+        detail: `needs ${Math.ceil(needed)} min (walk, prep, handoff), has ${freeMinutes} min`,
       });
     }
 
@@ -243,12 +263,15 @@ export function decide(s: Scenario): Decision {
     for (const item of m.items ?? []) {
       if (!(item.stock > 0)) continue;
       if (veg && !(item.tags ?? []).includes("veg")) continue;
-      const ctx = contextBoost(item, m, weather, t);
+      const later = remoteOk && walk > MAX_WALK_MIN;
+      if (!later && walk + (item.prep_min ?? DEFAULT_PREP_MIN) + HANDOFF_MIN > freeMinutes) continue;
+      const ctx = contextBoost(item, m, weather, t, s.context.festival);
       const aff = clamp(affinity[item.category] ?? 0.2, 0, 1);
       const pBase = baseProbability({
         affinity: aff,
         habit,
-        walkMin: walk,
+        // An invitation for later is scored as if at the edge of walking range.
+        walkMin: Math.min(walk, MAX_WALK_MIN),
         rating: m.rating ?? 4,
         context: ctx.value,
       });
@@ -257,15 +280,23 @@ export function decide(s: Scenario): Decision {
       const baseProfit = pBase * item.price * margin;
 
       const tiers: Tier[] = [];
-      const maxD = Math.floor(m.max_discount_pct);
-      const pcts: number[] = [];
+      const maxD = Math.max(0, Math.floor(m.max_discount_pct || 0));
+      const floor = 1 + (m.min_margin_pct ?? 0) / 100;
+      const unitCost = item.price * (1 - margin);
+      // 0% is a full-price invitation; every tier above it is a real discount.
+      const pcts: number[] = [0];
       for (let p = TIER_STEP; p <= maxD; p += TIER_STEP) pcts.push(p);
-      if (pcts[pcts.length - 1] !== maxD) pcts.push(maxD);
+      if (maxD > 0 && pcts[pcts.length - 1] !== maxD) pcts.push(maxD);
       for (const pct of pcts) {
-        const pOffer = pWithDiscount(pBase, pct, slope);
+        const pOffer = pWithDiscount(pBase, pct, slope, habit);
         const finalPrice = Math.round(item.price * (1 - pct / 100));
-        const unit = finalPrice - item.price * (1 - margin);
+        const unit = finalPrice - unitCost;
         const expected = pOffer * unit;
+        const guard = m.price_guard;
+        const marginOk =
+          pct === 0 ||
+          (finalPrice >= unitCost * floor &&
+            (!guard || guard.base_price * (1 - pct / 100) >= guard.unit_cost * floor));
         tiers.push({
           pct,
           p_convert: round(pOffer, 3),
@@ -274,9 +305,10 @@ export function decide(s: Scenario): Decision {
           expected_profit: round(expected, 1),
           incremental: round(expected - baseProfit - SEND_COST, 1),
           affordable: finalPrice <= wallet,
+          margin_ok: marginOk,
         });
       }
-      const valid = tiers.filter((x) => x.affordable && x.unit_profit > 0);
+      const valid = tiers.filter((x) => x.affordable && x.margin_ok && x.unit_profit > 0);
       const best = valid.reduce<Tier | null>((a, b) => (!a || b.incremental > a.incremental ? b : a), null);
 
       scored.push({
@@ -336,15 +368,15 @@ export function decide(s: Scenario): Decision {
 
   t0 = now();
   const best = top.tiers.find((x) => x.pct === top.best_pct);
-  if (!best || top.best_incremental < MIN_UPLIFT) {
+  if (!best || top.best_incremental < minUplift) {
     const likeliest = scored.reduce((a, b) => (b.p_base > a.p_base ? b : a));
     const reason =
       likeliest.p_base >= 0.6
         ? `${user.name} would likely buy ${likeliest.item_name} at ${likeliest.merchant_name} anyway (${Math.round(likeliest.p_base * 100)}% without an offer). A discount would only give margin away.`
         : top.tiers.every((x) => !x.affordable)
-          ? `Even the deepest discount is above ${user.name}'s budget.`
+          ? `Nothing here fits ${user.name}'s wallet of ₹${wallet}, even at the deepest allowed discount.`
           : top.best_incremental > 0
-            ? `Best option adds only ₹${top.best_incremental}, under the ₹${MIN_UPLIFT} bar. Not worth a notification.`
+            ? `Best option adds only ₹${top.best_incremental}, under the ₹${minUplift} bar. Not worth a notification.`
             : `No discount level earns back what it costs. Best case loses ₹${Math.abs(Math.round(Number.isFinite(top.best_incremental) ? top.best_incremental : 0))}.`;
     stages.push({ id: "price", label: "Pick the discount", summary: "No tier adds enough profit; skip", ms: now() - t0 });
     return skip(id, reason, trace);
@@ -352,7 +384,10 @@ export function decide(s: Scenario): Decision {
   stages.push({
     id: "price",
     label: "Pick the discount",
-    summary: `${best.pct}% adds ₹${best.incremental} expected profit (max allowed ${top.m.max_discount_pct}%)`,
+    summary:
+      best.pct === 0
+        ? `Full price adds ₹${best.incremental}; no discount needed${top.m.max_discount_pct ? ` (max allowed ${top.m.max_discount_pct}%)` : ""}`
+        : `${best.pct}% adds ₹${best.incremental} expected profit (max allowed ${top.m.max_discount_pct}%)`,
     ms: now() - t0,
   });
   trace.chosen = { merchant_id: top.merchant_id, item_id: top.item_id, pct: best.pct };
@@ -390,25 +425,26 @@ export function decide(s: Scenario): Decision {
     send_cost: SEND_COST,
   };
 
-  const rainy = weather.condition === "rain" || weather.condition === "heavy_rain";
   const dp = daypart(t);
-  const component: UiComponent = rainy
+  const component: UiComponent = isRainy(weather)
     ? "RainOfferCard"
-    : weather.temp_c >= 30 && (top.item.tags ?? []).includes("cold")
+    : isHot(weather) && (top.item.tags ?? []).includes("cold")
       ? "HeatOfferCard"
       : dp === "evening" || dp === "night"
         ? "EveningOfferCard"
         : "LunchOfferCard";
 
   const facts: CopyFacts = {
-    user_name: user.name,
-    language: user.language === "en" ? "en" : "hinglish",
+    user_name: cleanText(user.name, 24).split(" ")[0] || "there",
+    sensitive: SENSITIVE_CATEGORIES.has(top.m.category),
+    language: user.language === "hinglish" || !user.language ? "hi-en" : user.language,
     merchant_name: offer.merchant_name,
     item_name: offer.item_name,
     base_price: offer.base_price,
     final_price: offer.final_price,
     discount_pct: offer.discount_pct,
     walk_minutes: offer.walk_minutes,
+    remote: top.walk_min > MAX_WALK_MIN,
     valid_until_clock: minToClock(until),
     temp_c: Math.round(weather.temp_c),
     weather: weather.condition,
@@ -419,7 +455,12 @@ export function decide(s: Scenario): Decision {
   return {
     scenario_id: id,
     action: "send",
-    reason: `${best.pct}% at ${top.merchant_name} lifts purchase odds from ${Math.round(pBase * 100)}% to ${Math.round(best.p_convert * 100)}% and adds ₹${best.incremental} expected profit.`,
+    reason:
+      best.incremental < 0
+        ? `A ${best.pct ? `${best.pct}% offer` : "full-price invitation"} to ${top.merchant_name} lifts purchase odds from ${Math.round(pBase * 100)}% to ${Math.round(best.p_convert * 100)}% and roughly pays for itself (₹${best.incremental} after the ₹${SEND_COST} send cost).`
+        : best.pct === 0
+        ? `A full-price invitation to ${top.merchant_name} lifts purchase odds from ${Math.round(pBase * 100)}% to ${Math.round(best.p_convert * 100)}% and adds ₹${best.incremental} expected profit; a discount would not add more.`
+        : `${best.pct}% at ${top.merchant_name} lifts purchase odds from ${Math.round(pBase * 100)}% to ${Math.round(best.p_convert * 100)}% and adds ₹${best.incremental} expected profit.`,
     offer,
     economics,
     ui_configuration: { component, weather: weather.condition, daypart: dp },

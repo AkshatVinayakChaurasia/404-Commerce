@@ -1,0 +1,267 @@
+id,merchant_id,title,category,price_inr,stock_units,prep_minutes,is_veg,tags
+i_001_1,m_001,Iced coffee & lunch bowl,general,150.0,16,8,True,"lunch,cold,vegetarian"
+i_001_2,m_001,Cold brew coffee,general,150.0,12,4,True,"drink,cold"
+i_001_3,m_001,Paneer toastie,general,150.0,10,7,True,"snack,vegetarian"
+i_002_1,m_002,Iced coffee & lunch bowl,general,150.0,18,8,True,"lunch,cold,vegetarian"
+i_002_2,m_002,Cold brew coffee,general,150.0,23,4,True,"drink,cold"
+i_002_3,m_002,Paneer toastie,general,150.0,4,7,True,"snack,vegetarian"
+i_003_1,m_003,Iced coffee & lunch bowl,general,150.0,25,8,True,"lunch,cold,vegetarian"
+i_003_2,m_003,Cold brew coffee,general,150.0,6,4,True,"drink,cold"
+i_003_3,m_003,Paneer toastie,general,150.0,11,7,True,"snack,vegetarian"
+i_004_1,m_004,Iced coffee & lunch bowl,general,150.0,8,8,True,"lunch,cold,vegetarian"
+i_004_2,m_004,Cold brew coffee,general,150.0,13,4,True,"drink,cold"
+i_004_3,m_004,Paneer toastie,general,150.0,18,7,True,"snack,vegetarian"
+i_005_1,m_005,Iced coffee & lunch bowl,general,150.0,15,8,True,"lunch,cold,vegetarian"
+i_005_2,m_005,Hot filter coffee,general,150.0,20,4,True,"drink,warm,winter"
+i_005_3,m_005,Paneer toastie,general,150.0,25,7,True,"snack,vegetarian"
+i_006_1,m_006,Iced coffee & lunch bowl,general,150.0,22,8,True,"lunch,cold,vegetarian"
+i_006_2,m_006,Cold brew coffee,general,150.0,27,4,True,"drink,cold"
+i_006_3,m_006,Paneer toastie,general,150.0,8,7,True,"snack,vegetarian"
+i_007_1,m_007,Iced coffee & lunch bowl,general,150.0,5,8,True,"lunch,cold,vegetarian"
+i_007_2,m_007,Masala chai,general,150.0,10,4,True,"drink,warm,monsoon"
+i_007_3,m_007,Paneer toastie,general,150.0,15,7,True,"snack,vegetarian"
+i_008_1,m_008,Iced coffee & lunch bowl,general,150.0,12,8,True,"lunch,cold,vegetarian"
+i_008_2,m_008,Cold brew coffee,general,150.0,17,4,True,"drink,cold"
+i_008_3,m_008,Paneer toastie,general,150.0,22,7,True,"snack,vegetarian"
+i_009_1,m_009,Iced coffee & lunch bowl,general,150.0,19,8,True,"lunch,cold,vegetarian"
+i_009_2,m_009,Cold brew coffee,general,150.0,24,4,True,"drink,cold"
+i_009_3,m_009,Paneer toastie,general,150.0,5,7,True,"snack,vegetarian"
+i_010_1,m_010,Iced coffee & lunch bowl,general,150.0,26,8,True,"lunch,cold,vegetarian"
+i_010_2,m_010,Cold brew coffee,general,150.0,7,4,True,"drink,cold"
+i_010_3,m_010,Paneer toastie,general,150.0,12,7,True,"snack,vegetarian"
+i_011_1,m_011,Iced coffee & lunch bowl,general,150.0,9,8,True,"lunch,cold,vegetarian"
+i_011_2,m_011,Cold brew coffee,general,150.0,14,4,True,"drink,cold"
+i_011_3,m_011,Paneer toastie,general,150.0,19,7,True,"snack,vegetarian"
+i_012_1,m_012,Iced coffee & lunch bowl,general,150.0,16,8,True,"lunch,cold,vegetarian"
+i_012_2,m_012,Cold brew coffee,general,150.0,21,4,True,"drink,cold"
+i_012_3,m_012,Paneer toastie,general,150.0,26,7,True,"snack,vegetarian"
+i_013_1,m_013,Iced coffee & lunch bowl,general,150.0,23,8,True,"lunch,cold,vegetarian"
+i_013_2,m_013,Cold brew coffee,general,150.0,4,4,True,"drink,cold"
+i_013_3,m_013,Paneer toastie,general,150.0,9,7,True,"snack,vegetarian"
+i_014_1,m_014,Iced coffee & lunch bowl,general,150.0,6,8,True,"lunch,cold,vegetarian"
+i_014_2,m_014,Cold brew coffee,general,150.0,11,4,True,"drink,cold"
+i_014_3,m_014,Paneer toastie,general,150.0,16,7,True,"snack,vegetarian"
+i_015_1,m_015,Masala dosa,general,150.0,13,10,True,"lunch,vegetarian"
+i_015_2,m_015,Weekday thali,general,150.0,18,12,True,"lunch,vegetarian"
+i_015_3,m_015,Evening snack platter,general,150.0,23,9,True,snack
+i_016_1,m_016,Masala dosa & filter coffee,general,150.0,20,10,True,"lunch,vegetarian"
+i_016_2,m_016,Weekday thali,general,150.0,25,12,True,"lunch,vegetarian"
+i_016_3,m_016,Evening snack platter,general,150.0,6,9,True,snack
+i_017_1,m_017,Masala dosa & filter coffee,general,150.0,27,10,True,"lunch,vegetarian"
+i_017_2,m_017,Weekday thali,general,150.0,8,12,True,"lunch,vegetarian"
+i_017_3,m_017,Evening snack platter,general,150.0,13,9,True,snack
+i_018_1,m_018,Masala dosa & filter coffee,general,150.0,10,10,True,"lunch,vegetarian"
+i_018_2,m_018,Weekday thali,general,150.0,15,12,True,"lunch,vegetarian"
+i_018_3,m_018,Evening snack platter,general,150.0,20,9,True,snack
+i_019_1,m_019,Masala dosa & filter coffee,general,150.0,17,10,True,"lunch,vegetarian"
+i_019_2,m_019,Weekday thali,general,150.0,22,12,True,"lunch,vegetarian"
+i_019_3,m_019,Evening snack platter,general,150.0,27,9,True,snack
+i_020_1,m_020,Masala dosa & filter coffee,general,150.0,24,10,True,"lunch,vegetarian"
+i_020_2,m_020,Weekday thali,general,150.0,5,12,True,"lunch,vegetarian"
+i_020_3,m_020,Evening snack platter,general,150.0,10,9,True,snack
+i_021_1,m_021,Masala dosa & filter coffee,general,150.0,7,10,True,"lunch,vegetarian"
+i_021_2,m_021,Weekday thali,general,150.0,12,12,True,"lunch,vegetarian"
+i_021_3,m_021,Evening snack platter,general,150.0,17,9,True,snack
+i_022_1,m_022,Masala dosa & filter coffee,general,150.0,14,10,True,"lunch,vegetarian"
+i_022_2,m_022,Weekday thali,general,150.0,19,12,True,"lunch,vegetarian"
+i_022_3,m_022,Evening snack platter,general,150.0,24,9,True,snack
+i_023_1,m_023,Masala dosa & filter coffee,general,150.0,21,10,True,"lunch,vegetarian"
+i_023_2,m_023,Weekday thali,general,150.0,26,12,True,"lunch,vegetarian"
+i_023_3,m_023,Evening snack platter,general,150.0,7,9,True,snack
+i_024_1,m_024,Masala dosa & filter coffee,general,150.0,4,10,True,"lunch,vegetarian"
+i_024_2,m_024,Weekday thali,general,150.0,9,12,True,"lunch,vegetarian"
+i_024_3,m_024,Evening snack platter,general,150.0,14,9,True,snack
+i_025_1,m_025,Masala dosa & filter coffee,general,150.0,11,10,True,"lunch,vegetarian"
+i_025_2,m_025,Weekday thali,general,150.0,16,12,True,"lunch,vegetarian"
+i_025_3,m_025,Evening snack platter,general,150.0,21,9,True,snack
+i_026_1,m_026,Masala dosa & filter coffee,general,150.0,18,10,True,"lunch,vegetarian"
+i_026_2,m_026,Weekday thali,general,150.0,23,12,True,"lunch,vegetarian"
+i_026_3,m_026,Evening snack platter,general,150.0,4,9,True,snack
+i_027_1,m_027,Fresh sandwich & lemonade,general,150.0,25,7,True,"lunch,vegetarian"
+i_027_2,m_027,Chocolate croissant,general,150.0,6,3,True,snack
+i_027_3,m_027,Celebration cookie box,general,150.0,11,5,True,"festival,gift"
+i_028_1,m_028,Fresh sandwich & lemonade,general,150.0,8,7,True,"lunch,vegetarian"
+i_028_2,m_028,Chocolate croissant,general,150.0,13,3,True,snack
+i_028_3,m_028,Celebration cookie box,general,150.0,18,5,True,"festival,gift"
+i_029_1,m_029,Fresh sandwich & lemonade,general,150.0,15,7,True,"lunch,vegetarian"
+i_029_2,m_029,Chocolate croissant,general,150.0,20,3,True,snack
+i_029_3,m_029,Celebration cookie box,general,150.0,25,5,True,"festival,gift"
+i_030_1,m_030,Fresh sandwich & lemonade,general,150.0,22,7,True,"lunch,vegetarian"
+i_030_2,m_030,Chocolate croissant,general,150.0,27,3,True,snack
+i_030_3,m_030,Celebration cookie box,general,150.0,8,5,True,"festival,gift"
+i_031_1,m_031,Fresh sandwich & lemonade,general,150.0,5,7,True,"lunch,vegetarian"
+i_031_2,m_031,Chocolate croissant,general,150.0,10,3,True,snack
+i_031_3,m_031,Celebration cookie box,general,150.0,15,5,True,"festival,gift"
+i_032_1,m_032,Fresh sandwich & lemonade,general,150.0,12,7,True,"lunch,vegetarian"
+i_032_2,m_032,Chocolate croissant,general,150.0,17,3,True,snack
+i_032_3,m_032,Celebration cookie box,general,150.0,22,5,True,"festival,gift"
+i_033_1,m_033,Fresh sandwich & lemonade,general,150.0,19,7,True,"lunch,vegetarian"
+i_033_2,m_033,Chocolate croissant,general,150.0,24,3,True,snack
+i_033_3,m_033,Celebration cookie box,general,150.0,5,5,True,"festival,gift"
+i_034_1,m_034,Fresh sandwich & lemonade,general,150.0,26,7,True,"lunch,vegetarian"
+item_l_100,MER-001,Weekday lunch plate,dish,149.0,8,6,True,nan
+item_l_101,MER-001,Complimentary snack on qualifying orders,perk,,9,6,True,nan
+item_l_102,MER-001,Sunday brunch plate,dish,699.0,10,6,True,nan
+item_l_103,MER-001,Free delivery on orders over ₹500,perk,,11,6,True,nan
+item_l_104,MER-001,Complimentary cake for parties of six or more,perk,,12,6,True,nan
+item_l_105,MER-001,Match-night combo,dish,399.0,13,6,True,ipl_match
+item_l_106,MER-001,Iced lime cooler,drink,120.0,14,6,True,summer_switchup
+item_l_107,MER-001,Evening rice plate,dish,240.0,15,6,True,winter_comfort
+item_l_108,MER-002,Complimentary snack on qualifying orders,perk,,9,6,True,nan
+item_l_109,MER-002,Sunday brunch plate,dish,699.0,10,6,True,nan
+item_l_110,MER-002,Free delivery on orders over ₹500,perk,,11,6,True,nan
+item_l_111,MER-002,Complimentary cake for parties of six or more,perk,,12,6,True,nan
+item_l_112,MER-002,Filter coffee,drink,90.0,13,6,True,nan
+item_l_113,MER-002,Iced lime cooler,drink,120.0,14,6,True,summer_switchup
+item_l_114,MER-002,Evening rice plate,dish,240.0,15,6,True,winter_comfort
+item_l_115,MER-002,Ugadi festive plate,dish,249.0,16,6,True,ugadi
+item_l_116,MER-003,Sunday brunch plate,dish,699.0,10,6,True,nan
+item_l_117,MER-003,Free delivery on orders over ₹500,perk,,11,6,True,nan
+item_l_118,MER-003,Complimentary cake for parties of six or more,perk,,12,6,True,nan
+item_l_119,MER-003,Filter coffee,drink,90.0,13,6,True,nan
+item_l_120,MER-003,Veg puff,dish,70.0,14,6,True,nan
+item_l_121,MER-003,Evening rice plate,dish,240.0,15,6,True,winter_comfort
+item_l_122,MER-003,Ugadi festive plate,dish,249.0,16,6,True,ugadi
+item_l_123,MER-003,Modak box of six,dish,299.0,17,6,True,ganesh_chaturthi
+item_l_124,MER-004,Free delivery on orders over ₹500,perk,,11,6,True,nan
+item_l_125,MER-004,Complimentary cake for parties of six or more,perk,,12,6,True,nan
+item_l_126,MER-004,Filter coffee,drink,90.0,13,6,True,nan
+item_l_127,MER-004,Veg puff,dish,70.0,14,6,True,nan
+item_l_128,MER-004,Millet lunch bowl,dish,220.0,15,6,True,nan
+item_l_129,MER-004,Ugadi festive plate,dish,249.0,16,6,True,ugadi
+item_l_130,MER-004,Modak box of six,dish,299.0,17,6,True,ganesh_chaturthi
+item_l_131,MER-004,Navratri lunch plate,dish,279.0,18,6,True,navratri
+item_l_132,MER-005,Complimentary cake for parties of six or more,perk,,12,6,True,nan
+item_l_133,MER-005,Filter coffee,drink,90.0,13,6,True,nan
+item_l_134,MER-005,Veg puff,dish,70.0,14,6,True,nan
+item_l_135,MER-005,Millet lunch bowl,dish,220.0,15,6,True,nan
+item_l_136,MER-005,Grilled vegetable sandwich,dish,180.0,16,6,True,nan
+item_l_137,MER-005,Modak box of six,dish,299.0,17,6,True,ganesh_chaturthi
+item_l_138,MER-005,Navratri lunch plate,dish,279.0,18,6,True,navratri
+item_l_139,MER-005,Onam sadya plate,dish,349.0,19,6,True,onam
+item_l_140,MER-006,Filter coffee,drink,90.0,13,6,True,nan
+item_l_141,MER-006,Veg puff,dish,70.0,14,6,True,nan
+item_l_142,MER-006,Millet lunch bowl,dish,220.0,15,6,True,nan
+item_l_143,MER-006,Grilled vegetable sandwich,dish,180.0,16,6,True,nan
+item_l_144,MER-006,Weekday lunch plate,dish,149.0,17,6,True,nan
+item_l_145,MER-006,Navratri lunch plate,dish,279.0,18,6,True,navratri
+item_l_146,MER-006,Onam sadya plate,dish,349.0,19,6,True,onam
+item_l_147,MER-006,Diwali sweet box,dish,499.0,20,6,True,diwali
+item_l_148,MER-007,Veg puff,dish,70.0,14,6,True,nan
+item_l_149,MER-007,Millet lunch bowl,dish,220.0,15,6,True,nan
+item_l_150,MER-007,Grilled vegetable sandwich,dish,180.0,16,6,True,nan
+item_l_151,MER-007,Weekday lunch plate,dish,149.0,17,6,True,nan
+item_l_152,MER-007,Complimentary snack on qualifying orders,perk,,18,6,True,nan
+item_l_153,MER-007,Onam sadya plate,dish,349.0,19,6,True,onam
+item_l_154,MER-007,Diwali sweet box,dish,499.0,20,6,True,diwali
+item_l_155,MER-007,Sankranti millet meal,dish,199.0,21,6,True,sankranti
+item_l_156,MER-008,Millet lunch bowl,dish,220.0,15,6,True,nan
+item_l_157,MER-008,Grilled vegetable sandwich,dish,180.0,16,6,True,nan
+item_l_158,MER-008,Weekday lunch plate,dish,149.0,17,6,True,nan
+item_l_159,MER-008,Complimentary snack on qualifying orders,perk,,18,6,True,nan
+item_l_160,MER-008,Sunday brunch plate,dish,699.0,19,6,True,nan
+item_l_161,MER-008,Diwali sweet box,dish,499.0,20,6,True,diwali
+item_l_162,MER-008,Sankranti millet meal,dish,199.0,21,6,True,sankranti
+item_l_163,MER-008,Christmas plum-cake slice,dish,180.0,22,6,True,christmas
+item_l_164,MER-009,Grilled vegetable sandwich,dish,180.0,16,6,True,nan
+item_l_165,MER-009,Weekday lunch plate,dish,149.0,17,6,True,nan
+item_l_166,MER-009,Complimentary snack on qualifying orders,perk,,18,6,True,nan
+item_l_167,MER-009,Sunday brunch plate,dish,699.0,19,6,True,nan
+item_l_168,MER-009,Free delivery on orders over ₹500,perk,,20,6,True,nan
+item_l_169,MER-009,Sankranti millet meal,dish,199.0,21,6,True,sankranti
+item_l_170,MER-009,Christmas plum-cake slice,dish,180.0,22,6,True,christmas
+item_l_171,MER-009,Match-night combo,dish,399.0,23,6,True,ipl_match
+item_l_172,MER-010,Weekday lunch plate,dish,149.0,17,6,True,nan
+item_l_173,MER-010,Complimentary snack on qualifying orders,perk,,18,6,True,nan
+item_l_174,MER-010,Sunday brunch plate,dish,699.0,19,6,True,nan
+item_l_175,MER-010,Free delivery on orders over ₹500,perk,,20,6,True,nan
+item_l_176,MER-010,Complimentary cake for parties of six or more,perk,,21,6,True,nan
+item_l_177,MER-010,Christmas plum-cake slice,dish,180.0,22,6,True,christmas
+item_l_178,MER-010,Match-night combo,dish,399.0,23,6,True,ipl_match
+item_l_179,MER-010,Iced lime cooler,drink,120.0,24,6,True,summer_switchup
+item_l_180,MER-011,Complimentary snack on qualifying orders,perk,,18,6,True,nan
+item_l_181,MER-011,Sunday brunch plate,dish,699.0,19,6,True,nan
+item_l_182,MER-011,Free delivery on orders over ₹500,perk,,20,6,True,nan
+item_l_183,MER-011,Complimentary cake for parties of six or more,perk,,21,6,True,nan
+item_l_184,MER-011,Filter coffee,drink,90.0,22,6,True,nan
+item_l_185,MER-011,Match-night combo,dish,399.0,23,6,True,ipl_match
+item_l_186,MER-011,Iced lime cooler,drink,120.0,24,6,True,summer_switchup
+item_l_187,MER-011,Evening rice plate,dish,240.0,25,6,True,winter_comfort
+item_l_188,MER-012,Sunday brunch plate,dish,699.0,19,6,True,nan
+item_l_189,MER-012,Free delivery on orders over ₹500,perk,,20,6,True,nan
+item_l_190,MER-012,Complimentary cake for parties of six or more,perk,,21,6,True,nan
+item_l_191,MER-012,Filter coffee,drink,90.0,22,6,True,nan
+item_l_192,MER-012,Veg puff,dish,70.0,23,6,True,nan
+item_l_193,MER-012,Iced lime cooler,drink,120.0,24,6,True,summer_switchup
+item_l_194,MER-012,Evening rice plate,dish,240.0,25,6,True,winter_comfort
+item_l_195,MER-012,Ugadi festive plate,dish,249.0,26,6,True,ugadi
+item_l_196,MER-013,Free delivery on orders over ₹500,perk,,20,6,True,nan
+item_l_197,MER-013,Complimentary cake for parties of six or more,perk,,21,6,True,nan
+item_l_198,MER-013,Filter coffee,drink,90.0,22,6,True,nan
+item_l_199,MER-013,Veg puff,dish,70.0,23,6,True,nan
+item_m_035_01,m_035,Signature pharmacy special,pharmacy,449.0,28,8,True,
+item_m_036_01,m_036,Signature pharmacy special,pharmacy,378.0,31,10,True,
+item_m_037_01,m_037,Signature pharmacy special,pharmacy,167.0,34,5,True,
+item_m_038_01,m_038,Signature pharmacy special,pharmacy,402.0,22,7,True,
+item_m_039_01,m_039,Signature pharmacy special,pharmacy,155.0,9,9,True,
+item_m_040_01,m_040,Signature pharmacy special,pharmacy,96.0,34,9,True,
+item_m_041_01,m_041,Signature pharmacy special,pharmacy,438.0,17,8,True,
+item_m_042_01,m_042,Signature pharmacy special,pharmacy,177.0,29,8,True,
+item_m_043_01,m_043,Signature salon special,salon,305.0,32,14,True,
+item_m_044_01,m_044,Signature salon special,salon,294.0,23,12,True,
+item_m_045_01,m_045,Signature salon special,salon,291.0,29,9,True,
+item_m_046_01,m_046,Signature salon special,salon,290.0,39,15,True,
+item_m_047_01,m_047,Signature salon special,salon,393.0,39,12,True,
+item_m_048_01,m_048,Signature salon special,salon,111.0,18,10,True,
+item_m_049_01,m_049,Signature salon special,salon,345.0,18,7,True,
+item_m_050_01,m_050,Signature gym special,gym,367.0,39,7,True,
+item_m_051_01,m_051,Signature gym special,gym,419.0,11,13,True,
+item_m_052_01,m_052,Signature gym special,gym,349.0,10,6,True,
+item_m_053_01,m_053,Signature gym special,gym,240.0,11,5,True,
+item_m_054_01,m_054,Signature gym special,gym,315.0,34,7,True,
+item_m_055_01,m_055,Signature gym special,gym,255.0,22,6,True,
+item_m_056_01,m_056,Signature grocery special,grocery,261.0,17,5,True,
+item_m_057_01,m_057,Signature grocery special,grocery,392.0,21,13,True,
+item_m_058_01,m_058,Signature grocery special,grocery,178.0,37,10,True,
+item_m_059_01,m_059,Signature grocery special,grocery,222.0,11,14,True,
+item_m_060_01,m_060,Signature grocery special,grocery,232.0,38,15,True,
+item_m_061_01,m_061,Signature dentist special,dentist,232.0,39,5,True,
+item_m_062_01,m_062,Signature dentist special,dentist,440.0,8,13,True,
+item_m_063_01,m_063,Signature dentist special,dentist,433.0,34,5,True,
+item_m_064_01,m_064,Signature dentist special,dentist,242.0,9,13,True,
+item_m_065_01,m_065,Signature dessert special,dessert,258.0,25,13,True,
+item_m_066_01,m_066,Signature dessert special,dessert,449.0,26,5,True,
+item_m_067_01,m_067,Signature dessert special,dessert,227.0,40,15,True,
+item_m_068_01,m_068,Signature wellness special,wellness,373.0,35,7,True,
+item_m_069_01,m_069,Signature wellness special,wellness,274.0,14,6,True,
+item_m_070_01,m_070,Signature wellness special,wellness,256.0,17,8,True,
+item_m_l_MER-001_01,m_l_MER-001,Signature food special,food,120.0,20,14,True,
+item_m_l_MER-002_01,m_l_MER-002,Signature food special,food,325.0,24,10,True,
+item_m_l_MER-003_01,m_l_MER-003,Signature food special,food,436.0,25,11,True,
+item_m_l_MER-004_01,m_l_MER-004,Signature food special,food,105.0,13,10,True,
+item_m_l_MER-005_01,m_l_MER-005,Signature food special,food,131.0,33,12,True,
+item_m_l_MER-006_01,m_l_MER-006,Signature food special,food,428.0,23,8,True,
+item_m_l_MER-007_01,m_l_MER-007,Signature food special,food,414.0,27,15,True,
+item_m_l_MER-008_01,m_l_MER-008,Signature food special,food,244.0,13,15,True,
+item_m_l_MER-009_01,m_l_MER-009,Signature food special,food,373.0,10,6,True,
+item_m_l_MER-010_01,m_l_MER-010,Signature food special,food,170.0,33,11,True,
+item_m_l_MER-011_01,m_l_MER-011,Signature food special,food,228.0,32,13,True,
+item_m_l_MER-012_01,m_l_MER-012,Signature food special,food,225.0,38,5,True,
+item_m_l_MER-013_01,m_l_MER-013,Signature food special,food,338.0,8,7,True,
+item_m_l_MER-014_01,m_l_MER-014,Signature food special,food,163.0,13,12,True,
+item_m_l_MER-015_01,m_l_MER-015,Signature pharmacy special,pharmacy,252.0,35,15,True,
+item_m_l_MER-016_01,m_l_MER-016,Signature pharmacy special,pharmacy,392.0,29,14,True,
+item_m_l_MER-017_01,m_l_MER-017,Signature pharmacy special,pharmacy,124.0,14,13,True,
+item_m_l_MER-018_01,m_l_MER-018,Signature pharmacy special,pharmacy,324.0,10,8,True,
+item_m_l_MER-019_01,m_l_MER-019,Signature pharmacy special,pharmacy,276.0,21,14,True,
+item_m_l_MER-020_01,m_l_MER-020,Signature pharmacy special,pharmacy,378.0,38,9,True,
+item_m_l_MER-021_01,m_l_MER-021,Signature pharmacy special,pharmacy,200.0,10,6,True,
+item_m_l_MER-022_01,m_l_MER-022,Signature pharmacy special,pharmacy,161.0,25,13,True,
+item_m_l_MER-023_01,m_l_MER-023,Signature pharmacy special,pharmacy,140.0,10,7,True,
+item_m_l_MER-024_01,m_l_MER-024,Signature pharmacy special,pharmacy,148.0,28,5,True,
+item_m_l_MER-025_01,m_l_MER-025,Signature pharmacy special,pharmacy,439.0,21,14,True,
+item_m_s_095_01,m_s_095,Signature dentist special,dentist,354.0,17,11,True,
+item_m_s_096_01,m_s_096,Signature bakery special,bakery,109.0,12,9,True,
+item_m_s_097_01,m_s_097,Signature dentist special,dentist,321.0,18,14,True,
+item_m_s_098_01,m_s_098,Signature salon special,salon,171.0,23,14,True,
+item_m_s_099_01,m_s_099,Signature grocery special,grocery,176.0,32,15,True,

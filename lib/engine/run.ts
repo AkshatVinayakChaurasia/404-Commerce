@@ -3,7 +3,7 @@
 
 import type { Scenario, SolveResult } from "./types";
 import { decide } from "./solve";
-import { checkGrounding, templateCopy } from "./copy";
+import { canonLang, checkGrounding, templateCopy } from "./copy";
 import { buildPrompt, claudeCopy } from "./llm";
 
 export async function solve(s: Scenario, opts: { useClaude?: boolean } = {}): Promise<SolveResult> {
@@ -20,7 +20,7 @@ export async function solve(s: Scenario, opts: { useClaude?: boolean } = {}): Pr
       const r = await claudeCopy(facts);
       result.trace.prompt = r.prompt;
       if (r.copy) {
-        copy = r.copy;
+        copy = { ...r.copy, cta: copy.cta };
         source = "claude";
       } else {
         fallback_reason = r.problem;
@@ -31,7 +31,7 @@ export async function solve(s: Scenario, opts: { useClaude?: boolean } = {}): Pr
     const g = checkGrounding(copy, facts);
     result.notification = {
       ...copy,
-      language: facts.language,
+      language: canonLang(facts.language),
       source,
       grounded: g.ok,
       fallback_reason,

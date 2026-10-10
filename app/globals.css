@@ -24,8 +24,14 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Theme scopes. Every component reads only the semantic tokens below. */
-.theme-dark {
+/*
+  Theme scopes. Every component reads only the semantic tokens below.
+  Each page has a designed default (.theme-dark or .theme-light). A saved
+  preference on <html data-theme> overrides it everywhere, set before paint by
+  the inline script in app/layout.tsx.
+*/
+.theme-dark,
+:root[data-theme="dark"] .theme-light {
   --bg: var(--decoction);
   --surface: var(--roast);
   --surface-2: var(--roast-raised);
@@ -41,10 +47,14 @@
   --ok-tint: rgb(103 192 141 / 0.12);
   --bad-tint: rgb(240 132 106 / 0.12);
   --accent-tint: rgb(242 162 78 / 0.12);
+  --lock-a: #2a201a;
+  --lock-b: #1d1612;
+  --on-ok: #0f1f15;
   color-scheme: dark;
 }
 
-.theme-light {
+.theme-light,
+:root[data-theme="light"] .theme-dark {
   --bg: var(--steel);
   --surface: #ffffff;
   --surface-2: #f0eeeb;
@@ -60,6 +70,9 @@
   --ok-tint: #e5f2ea;
   --bad-tint: #fbe9e3;
   --accent-tint: #fdf0e1;
+  --lock-a: #f1ece6;
+  --lock-b: #e9e2da;
+  --on-ok: #ffffff;
   color-scheme: light;
 }
 
@@ -77,6 +90,7 @@
   --color-on-accent: var(--on-accent);
   --color-accent-text: var(--accent-text);
   --color-ok: var(--ok);
+  --color-on-ok: var(--on-ok);
   --color-bad: var(--bad);
   --color-ok-tint: var(--ok-tint);
   --color-bad-tint: var(--bad-tint);
@@ -86,6 +100,10 @@
 html {
   background: var(--decoction);
   -webkit-text-size-adjust: 100%;
+}
+
+:root[data-theme="light"] {
+  background: var(--steel);
 }
 
 body {

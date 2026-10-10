@@ -1,0 +1,9 @@
+id,name,event_tag,start_date,end_date,categories,boost_pct
+ev_diwali,Diwali,diwali,2026-11-08,2026-11-12,"restaurant,dessert,cafe,grocery",25
+ev_holi,Holi,holi,2026-03-14,2026-03-15,"cafe,dessert,restaurant",20
+ev_newyear,New Year,new_year,2026-12-31,2027-01-01,"restaurant,cafe,dessert",30
+ev_ipl,IPL Match Night,ipl,2026-04-15,2026-05-25,"restaurant,cafe,grocery",18
+ev_monsoon,Monsoon Peak,monsoon,2026-06-10,2026-08-15,"cafe,bakery,pharmacy",12
+ev_summer,Peak Summer,summer,2026-04-01,2026-05-31,"dessert,cafe,pharmacy",15
+ev_winter,Bangalore Winter,winter,2026-12-01,2027-01-31,"cafe,bakery,restaurant",10
+ev_weekend,Weekend Brunch Window,weekend,2026-05-16,2026-05-17,"cafe,restaurant,bakery",15

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/nav";
-import { Lab } from "@/components/lab/lab";
+import { LabShell } from "@/components/lab/lab-shell";
 
 export const metadata: Metadata = {
   title: "Decision Lab | AscenDex",
@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 export default function LabPage() {
   return (
     <div className="theme-dark min-h-dvh bg-bg text-text">
-      <Nav />
+      <Nav theme="dark" />
       <main>
-        <Lab />
+        <LabShell />
       </main>
     </div>
   );

@@ -1,0 +1,9 @@
+# Netlify: set the site's base directory to `web` if the repo root is the parent folder.
+# Next.js is detected automatically (OpenNext adapter): pages, /api/* and /decide
+# become serverless functions. Add env vars in Site settings > Environment variables.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"

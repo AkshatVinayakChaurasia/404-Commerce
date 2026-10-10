@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/nav";
 import { MerchantDashboard } from "@/components/merchant/merchant";
+import { dataset } from "@/lib/official/adapter";
 
 export const metadata: Metadata = {
   title: "Merchant dashboard | AscenDex",
-  description: "Set the rules, run a simulated week, and see which buyers came because of an offer.",
+  description: "Live decisions for your shop, real claims at the counter, and the rules the engine follows.",
 };
 
 export default function MerchantPage() {
+  const merchants = dataset.merchants
+    .map((m) => ({ id: m.id, name: m.name, category: m.category, locality: m.locality }))
+    .sort((a, b) => a.locality.localeCompare(b.locality) || a.name.localeCompare(b.name));
   return (
     <div className="theme-light min-h-dvh bg-bg text-text">
-      <Nav />
+      <Nav theme="light" />
       <main>
-        <MerchantDashboard />
+        <MerchantDashboard merchants={merchants} />
       </main>
     </div>
   );

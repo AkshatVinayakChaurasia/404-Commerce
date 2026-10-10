@@ -1,0 +1,101 @@
+id,name,category,locality,lat,lng,capacity,occupancy_pct,max_discount_pct,min_margin_pct,open_hour,close_hour,promo_start_hour,promo_end_hour,weekdays_only,objective,languages,inventory_signal,base_price_inr,unit_cost_inr,source
+m_001,Little Fern Café,cafe,Koramangala,12.93595,77.62484,25,18.0,20.0,13.0,8,21,13.0,15.0,True,Fill seats between 1–3 PM on weekdays; max 20% discount,"en,hi-en,kn-en",surplus,367,79,base
+m_002,Daybreak Coffee House,cafe,Marathahalli,12.95339,77.70147,26,42.0,20.0,14.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,265,171,base
+m_003,The Reading Room,cafe,Indiranagar,12.97909,77.64614,27,55.0,25.0,15.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,227,48,base
+m_004,Nook & Bean,cafe,BTM Layout,12.91409,77.61335,28,68.0,15.0,16.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,277,159,base
+m_005,Common Ground Café,cafe,Bellandur,12.93001,77.67972,29,81.0,10.0,17.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,310,170,base
+m_006,Saffron Cup,cafe,HSR Layout,12.91597,77.63913,30,22.0,15.0,18.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,223,60,base
+m_007,The Green Window,cafe,MG Road,12.97851,77.60788,31,35.0,20.0,19.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,145,54,base
+m_008,Second Sip,cafe,Hebbal,13.03844,77.59237,32,48.0,25.0,20.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,281,125,base
+m_009,Paperboat Café,cafe,Whitefield,12.97356,77.74704,33,61.0,15.0,12.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,253,172,base
+m_010,Cloud Nine Coffee,cafe,Electronic City,12.84386,77.66479,24,74.0,10.0,13.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,267,66,base
+m_011,Fern & Fork,cafe,Koramangala,12.93523,77.62747,25,87.0,15.0,14.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,181,160,base
+m_012,Warm Table,cafe,JP Nagar,12.91202,77.58763,26,28.0,20.0,15.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,285,158,base
+m_013,The Afternoon Club,cafe,Marathahalli,12.9537,77.70596,27,41.0,25.0,16.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,100,41,base
+m_014,Southside Brew,cafe,Indiranagar,12.97634,77.64378,28,54.0,15.0,17.0,8,21,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,99,65,base
+m_015,South Dosa House,restaurant,Koramangala,12.93491,77.62339,33,67.0,10.0,18.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,445,115,base
+m_016,Mango Leaf Kitchen,restaurant,Bellandur,12.92423,77.68044,34,80.0,15.0,19.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,322,162,base
+m_017,The Lunch Table,restaurant,HSR Layout,12.91626,77.64044,35,21.0,20.0,20.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,313,68,base
+m_018,Salt & Tamarind,restaurant,Malleshwaram,13.00998,77.56812,36,34.0,25.0,12.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,390,161,base
+m_019,Good Grain Kitchen,restaurant,Sarjapur Road,12.90126,77.69111,37,47.0,15.0,13.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,151,113,base
+m_020,Curry Corner,restaurant,Whitefield,12.96593,77.74455,38,60.0,10.0,14.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,393,111,base
+m_021,Tiffin Theory,restaurant,Electronic City,12.84523,77.65572,39,73.0,15.0,15.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,163,130,base
+m_022,The Rice Room,restaurant,Koramangala,12.93642,77.62018,40,86.0,20.0,16.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,395,106,base
+m_023,Pepper Route,restaurant,JP Nagar,12.90611,77.58166,41,27.0,25.0,17.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,383,116,base
+m_024,Supper Street,restaurant,Marathahalli,12.9609,77.70392,42,40.0,15.0,18.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,339,160,base
+m_025,Coriander House,restaurant,Indiranagar,12.97718,77.63934,18,53.0,10.0,19.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,352,155,base
+m_026,The Hungry Hour,restaurant,BTM Layout,12.91539,77.61405,19,66.0,15.0,20.0,9,23,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,442,174,base
+m_027,Butter & Crumb,bakery,Hebbal,13.03405,77.59722,20,79.0,20.0,12.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,233,151,base
+m_028,The Oven Door,bakery,Jayanagar,12.92702,77.59377,21,20.0,25.0,13.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",surplus,88,124,base
+m_029,Golden Loaf,bakery,Malleshwaram,13.00654,77.56543,22,33.0,15.0,14.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,249,58,base
+m_030,Morning Bake,bakery,Sarjapur Road,12.90573,77.68206,23,46.0,10.0,15.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,293,179,base
+m_031,Little Wheat,bakery,Whitefield,12.96743,77.74574,24,59.0,15.0,16.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,237,36,base
+m_032,Flourish Bakehouse,bakery,Electronic City,12.84274,77.65711,25,72.0,20.0,17.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",low,385,151,base
+m_033,Cinnamon Lane,bakery,Koramangala,12.93679,77.62032,26,85.0,25.0,18.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,215,178,base
+m_034,Bread & Butter,bakery,JP Nagar,12.90783,77.5872,27,26.0,15.0,19.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,375,88,base
+m_035,Neighbourhood Health Store,pharmacy,Marathahalli,12.95455,77.70118,28,39.0,10.0,20.0,9,22,,,False,Promote in-stock OTC essentials without medical claims,"en,hi-en,kn-en",healthy,449,43,base
+m_036,Care Corner Pharmacy,pharmacy,HSR Layout,12.91163,77.64859,29,52.0,15.0,12.0,9,22,,,False,Promote in-stock OTC essentials without medical claims,"en,hi-en,kn-en",surplus,378,152,base
+m_037,Everyday Wellness Pharmacy,pharmacy,MG Road,12.97436,77.60553,30,65.0,20.0,13.0,9,22,,,False,Promote in-stock OTC essentials without medical claims,"en,hi-en,kn-en",healthy,167,164,base
+m_038,Green Cross Essentials,pharmacy,Hebbal,13.03371,77.59308,31,78.0,25.0,14.0,9,22,,,False,Promote in-stock OTC essentials without medical claims,"en,hi-en,kn-en",healthy,402,127,base
+m_039,KindCare Pharmacy,pharmacy,Jayanagar,12.92849,77.59306,32,19.0,15.0,15.0,9,22,,,False,Promote in-stock OTC essentials without medical claims,"en,hi-en,kn-en",healthy,155,92,base
+m_040,Health Basket,pharmacy,Malleshwaram,13.00614,77.56743,33,32.0,10.0,16.0,9,22,,,False,Promote in-stock OTC essentials without medical claims,"en,hi-en,kn-en",low,96,176,base
+m_041,The Wellness Shelf,pharmacy,Sarjapur Road,12.89759,77.68214,34,45.0,15.0,17.0,9,22,,,False,Promote in-stock OTC essentials without medical claims,"en,hi-en,kn-en",healthy,438,58,base
+m_042,NearCare Pharmacy,pharmacy,Whitefield,12.97409,77.75405,35,58.0,20.0,18.0,9,22,,,False,Promote in-stock OTC essentials without medical claims,"en,hi-en,kn-en",healthy,177,34,base
+m_043,The Edit Studio,salon,Electronic City,12.84643,77.66493,12,71.0,25.0,19.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,305,110,base
+m_044,Studio Eleven,salon,Koramangala,12.93377,77.62556,13,84.0,15.0,20.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",surplus,294,68,base
+m_045,Moss & Mirror,salon,BTM Layout,12.9161,77.61085,5,25.0,10.0,12.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,291,82,base
+m_046,The Sunday Salon,salon,Bellandur,12.92198,77.67133,6,38.0,15.0,13.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,290,158,base
+m_047,Soft Cut Studio,salon,HSR Layout,12.91465,77.64205,7,51.0,20.0,14.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,393,150,base
+m_048,Bloom Beauty Room,salon,MG Road,12.97799,77.61061,8,64.0,25.0,15.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",low,111,65,base
+m_049,Good Hair Day,salon,Hebbal,13.03722,77.60091,9,77.0,15.0,16.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,345,83,base
+m_050,Powerhouse Fitness,gym,Jayanagar,12.92921,77.58969,18,18.0,10.0,17.0,6,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,367,113,base
+m_051,Move Well Studio,gym,Malleshwaram,13.00776,77.56477,19,31.0,15.0,18.0,6,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,419,152,base
+m_052,The Strength Room,gym,Sarjapur Road,12.89873,77.69013,20,44.0,20.0,19.0,6,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",surplus,349,126,base
+m_053,Everyday Active,gym,Whitefield,12.96869,77.74847,21,57.0,25.0,20.0,6,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,240,74,base
+m_054,Northside Fitness,gym,Marathahalli,12.95851,77.70206,22,70.0,15.0,12.0,6,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,315,166,base
+m_055,Pulse Training Club,gym,Indiranagar,12.98005,77.64268,23,83.0,10.0,13.0,6,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,255,169,base
+m_056,The Daily Basket,grocery,BTM Layout,12.91462,77.6131,24,24.0,15.0,14.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",low,261,97,base
+m_057,Corner Cart,grocery,Bellandur,12.92809,77.67611,25,37.0,20.0,15.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,392,153,base
+m_058,Freshly Local,grocery,HSR Layout,12.91144,77.64557,26,50.0,25.0,16.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,178,93,base
+m_059,Neighbourhood Market,grocery,MG Road,12.9761,77.61067,27,63.0,15.0,17.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,222,172,base
+m_060,Green Lane Grocery,grocery,Hebbal,13.03747,77.60202,28,76.0,10.0,18.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",surplus,232,87,base
+m_061,The Gentle Dental Clinic,dentist,Jayanagar,12.92641,77.59691,12,17.0,15.0,19.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,232,103,base
+m_062,Bright Smile Dental,dentist,Malleshwaram,13.00336,77.57216,13,30.0,20.0,20.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,440,83,base
+m_063,Care Dental Studio,dentist,Koramangala,12.93319,77.62668,5,43.0,25.0,12.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,433,155,base
+m_064,Neighbourhood Dental Care,dentist,JP Nagar,12.90869,77.58482,6,56.0,15.0,13.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",low,242,152,base
+m_065,Little Sweet Shop,dessert,Marathahalli,12.9554,77.69655,33,69.0,10.0,14.0,9,23,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,258,173,base
+m_066,Scoop & Story,dessert,Indiranagar,12.98054,77.63668,34,82.0,15.0,15.0,9,23,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,449,100,base
+m_067,The Dessert Counter,dessert,BTM Layout,12.91418,77.61227,35,23.0,20.0,16.0,9,23,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,227,61,base
+m_068,Slow Sunday Studio,wellness,Bellandur,12.92516,77.67674,10,36.0,25.0,17.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",surplus,373,169,base
+m_069,Breathe Easy Space,wellness,HSR Layout,12.91658,77.6427,11,49.0,15.0,18.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,274,131,base
+m_070,The Quiet Hour,wellness,MG Road,12.97101,77.6038,12,62.0,0.0,19.0,9,21,,,False,Fill available capacity without undercutting margin,"en,hi-en,kn-en",healthy,256,67,base
+m_l_MER-001,Fold Café,restaurant,Koramangala 5th Block,12.9344,77.6163,17,22.0,20.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,120,118,luna
+m_l_MER-002,Paper Plane Coffee,restaurant,Jayanagar,12.92416,77.58271,43,31.0,20.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,325,84,luna
+m_l_MER-003,Sunday Kind,restaurant,Ejipura,12.94279,77.61862,49,50.0,18.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,436,99,luna
+m_l_MER-004,Small Batch House,restaurant,HSR Layout,12.91242,77.6486,21,61.0,20.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,105,165,luna
+m_l_MER-005,Mango Tree Kitchen,restaurant,BTM Layout,12.91592,77.60829,55,61.0,18.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,131,135,luna
+m_l_MER-006,The Lunch Window,restaurant,Domlur,12.96192,77.63745,60,60.0,20.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,428,65,luna
+m_l_MER-007,Pepper & Plate,restaurant,Indiranagar,12.97747,77.64389,50,80.0,18.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,414,151,luna
+m_l_MER-008,Good Earth Café,restaurant,Bellandur,12.92743,77.67305,56,60.0,15.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,244,103,luna
+m_l_MER-009,Melt Room,restaurant,Koramangala,12.93589,77.61489,18,47.0,12.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,373,89,luna
+m_l_MER-010,Copper Kettle,restaurant,Jayanagar,12.92495,77.58154,17,41.0,10.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,170,39,luna
+m_l_MER-011,Dosa Social,restaurant,Ejipura,12.9407,77.61983,40,51.0,10.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,228,39,luna
+m_l_MER-012,Namma Table,restaurant,HSR Layout,12.90957,77.65091,34,30.0,18.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,225,146,luna
+m_l_MER-013,Olive & Oat,restaurant,BTM Layout,12.91909,77.60941,49,71.0,20.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,338,149,luna
+m_l_MER-014,Tiffin Theory,restaurant,Domlur,12.95959,77.64037,27,48.0,10.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,163,147,luna
+m_l_MER-015,Namma Care Pharmacy,pharmacy,HSR Layout,12.9101,77.64676,31,39.0,10.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,252,105,luna
+m_l_MER-016,Green Cross Chemist,pharmacy,BTM Layout,12.91778,77.6126,58,88.0,15.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,392,133,luna
+m_l_MER-017,Koramangala Health Store,pharmacy,Domlur,12.96098,77.63854,42,55.0,18.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,124,132,luna
+m_l_MER-018,WellSpring Pharmacy,pharmacy,Indiranagar,12.98097,77.63989,21,47.0,18.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,324,112,luna
+m_l_MER-019,CityCare Medicals,pharmacy,Bellandur,12.93027,77.67572,30,68.0,12.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,276,90,luna
+m_l_MER-020,Brightleaf Pharmacy,pharmacy,Koramangala,12.93362,77.61554,32,83.0,10.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,378,176,luna
+m_l_MER-021,Neighbourhood Medico,pharmacy,Jayanagar,12.92474,77.58517,31,58.0,20.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,200,45,luna
+m_l_MER-022,LifeLine Health Mart,pharmacy,Ejipura,12.94145,77.62135,22,41.0,10.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,161,133,luna
+m_l_MER-023,GoodDay Pharmacy,pharmacy,HSR Layout,12.91428,77.64394,47,72.0,20.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,140,105,luna
+m_l_MER-024,Cornerstone Chemists,pharmacy,BTM Layout,12.91916,77.61237,54,80.0,12.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",surplus,148,152,luna
+m_l_MER-025,Arogya Store,pharmacy,Domlur,12.96157,77.63966,44,87.0,15.0,12.0,8,22,,,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,439,170,luna
+m_s_095,Banashankari Dentist 2,dentist,Banashankari,12.91368,77.55277,79,72.0,30.0,15.0,7,20,,21.0,True,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",low,354,68,synthetic
+m_s_096,MG Road Bakery,bakery,MG Road,12.96568,77.61775,38,89.0,25.0,10.0,10,20,17.0,15.0,False,Increase weekday lunch covers,"en,hi-en,kn-en",low,109,173,synthetic
+m_s_097,Malleshwaram Dentist 7,dentist,Malleshwaram,13.01734,77.56296,44,15.0,15.0,10.0,7,23,13.0,,False,Fill seats between 1–3 PM on weekdays; max 20% discount,"en,hi-en,kn-en",surplus,321,38,synthetic
+m_s_098,Whitefield Salon 7,salon,Whitefield,12.98117,77.73505,59,63.0,25.0,18.0,10,20,18.0,15.0,True,Move surplus inventory before close,"en,hi-en,kn-en",surplus,171,167,synthetic
+m_s_099,Electronic City Grocery 4,grocery,Electronic City,12.8495,77.66886,12,17.0,20.0,18.0,10,23,12.0,15.0,False,Bring nearby customers into quieter service windows,"en,hi-en,kn-en",healthy,176,58,synthetic

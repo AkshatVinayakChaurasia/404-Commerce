@@ -1,0 +1,56 @@
+id,merchant_id,title,discount_pct,valid_from,valid_to,min_order_inr,active
+o_001,m_001,10% off Cold brew coffee,10.0,2026-05-01,2026-06-30,0.0,True
+o_003,m_003,Cold brew coffee for ₹171,0.0,2026-05-01,2026-06-30,0.0,True
+o_005,m_005,Complimentary add-on with Hot filter coffee,0.0,2026-05-01,2026-06-30,0.0,True
+o_007,m_007,10% off Masala chai,10.0,2026-05-01,2026-06-30,0.0,True
+o_009,m_009,Cold brew coffee for ₹153,0.0,2026-05-01,2026-06-30,0.0,True
+o_011,m_011,Complimentary add-on with Cold brew coffee,0.0,2026-05-01,2026-06-30,0.0,True
+o_013,m_013,10% off Cold brew coffee,10.0,2026-05-01,2026-06-30,0.0,True
+o_015,m_015,Weekday thali for ₹288,0.0,2026-05-01,2026-06-30,0.0,True
+o_017,m_017,Complimentary add-on with Weekday thali,0.0,2026-05-01,2026-06-30,0.0,True
+o_019,m_019,10% off Weekday thali,10.0,2026-05-01,2026-06-30,0.0,True
+o_021,m_021,Weekday thali for ₹270,0.0,2026-05-01,2026-06-30,0.0,True
+o_023,m_023,Complimentary add-on with Weekday thali,0.0,2026-05-01,2026-06-30,0.0,True
+o_025,m_025,10% off Weekday thali,10.0,2026-05-01,2026-06-30,0.0,True
+o_027,m_027,Chocolate croissant for ₹180,0.0,2026-05-01,2026-06-30,0.0,True
+o_029,m_029,Complimentary add-on with Chocolate croissant,0.0,2026-05-01,2026-06-30,0.0,True
+o_031,m_031,10% off Chocolate croissant,10.0,2026-05-01,2026-06-30,0.0,True
+o_033,m_033,Chocolate croissant for ₹162,0.0,2026-05-01,2026-06-30,0.0,True
+o_035,m_035,Complimentary add-on with Everyday first-aid kit,0.0,2026-05-01,2026-06-30,0.0,True
+o_037,m_037,10% off Everyday first-aid kit,10.0,2026-05-01,2026-06-30,0.0,True
+o_039,m_039,Everyday first-aid kit for ₹378,0.0,2026-05-01,2026-06-30,0.0,True
+o_041,m_041,Complimentary add-on with Everyday first-aid kit,0.0,2026-05-01,2026-06-30,0.0,True
+o_043,m_043,10% off Hair spa session,10.0,2026-05-01,2026-06-30,0.0,True
+o_045,m_045,Hair spa session for ₹819,0.0,2026-05-01,2026-06-30,0.0,True
+o_047,m_047,Complimentary add-on with Hair spa session,0.0,2026-05-01,2026-06-30,0.0,True
+o_049,m_049,10% off Hair spa session,10.0,2026-05-01,2026-06-30,0.0,True
+o_051,m_051,Week pass for ₹837,0.0,2026-05-01,2026-06-30,0.0,True
+o_053,m_053,Complimentary add-on with Week pass,0.0,2026-05-01,2026-06-30,0.0,True
+o_055,m_055,10% off Week pass,10.0,2026-05-01,2026-06-30,0.0,True
+o_057,m_057,Weekly staples pack for ₹549,0.0,2026-05-01,2026-06-30,0.0,True
+o_059,m_059,Complimentary add-on with Weekly staples pack,0.0,2026-05-01,2026-06-30,0.0,True
+o_061,m_061,10% off Dental consultation,10.0,2026-05-01,2026-06-30,0.0,True
+o_063,m_063,Dental consultation for ₹477,0.0,2026-05-01,2026-06-30,0.0,True
+o_065,m_065,Complimentary add-on with Mango ice cream cup,0.0,2026-05-01,2026-06-30,0.0,True
+o_067,m_067,10% off Mango ice cream cup,10.0,2026-05-01,2026-06-30,0.0,True
+o_069,m_069,Guided stretch session for ₹279,0.0,2026-05-01,2026-06-30,0.0,True
+so_extra_00,m_070,Surplus Clearance,15.0,2026-05-01,2026-06-30,0.0,True
+so_extra_01,m_043,Weekday Lunch Special,20.0,2026-05-01,2026-06-30,0.0,True
+so_extra_02,m_050,First Visit Welcome,15.0,2026-05-01,2026-06-30,0.0,True
+so_extra_03,m_s_096,Surplus Clearance,10.0,2026-05-01,2026-06-30,0.0,True
+so_extra_04,m_l_MER-025,First Visit Welcome,20.0,2026-05-01,2026-06-30,0.0,True
+so_extra_05,m_018,Surplus Clearance,15.0,2026-05-01,2026-06-30,0.0,True
+so_extra_06,m_l_MER-019,Happy Hour 20% off,20.0,2026-05-01,2026-06-30,0.0,True
+so_extra_07,m_l_MER-023,Surplus Clearance,10.0,2026-05-01,2026-06-30,0.0,True
+so_extra_08,m_011,First Visit Welcome,10.0,2026-05-01,2026-06-30,0.0,True
+so_extra_09,m_065,Weekday Lunch Special,10.0,2026-05-01,2026-06-30,0.0,True
+so_extra_10,m_s_095,First Visit Welcome,10.0,2026-05-01,2026-06-30,0.0,True
+so_extra_11,m_045,Surplus Clearance,20.0,2026-05-01,2026-06-30,0.0,True
+so_extra_12,m_007,Happy Hour 20% off,20.0,2026-05-01,2026-06-30,0.0,True
+so_extra_13,m_013,Surplus Clearance,15.0,2026-05-01,2026-06-30,0.0,True
+so_extra_14,m_056,First Visit Welcome,10.0,2026-05-01,2026-06-30,0.0,True
+so_extra_15,m_030,Weekday Lunch Special,10.0,2026-05-01,2026-06-30,0.0,True
+so_extra_16,m_010,First Visit Welcome,15.0,2026-05-01,2026-06-30,0.0,True
+so_extra_17,m_044,First Visit Welcome,15.0,2026-05-01,2026-06-30,0.0,True
+so_extra_18,m_l_MER-008,Weekday Lunch Special,10.0,2026-05-01,2026-06-30,0.0,True
+so_extra_19,m_s_098,Weekday Lunch Special,10.0,2026-05-01,2026-06-30,0.0,True

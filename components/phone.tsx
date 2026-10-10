@@ -52,7 +52,7 @@ export function LockScreen({
 }) {
   const reduce = useReducedMotion();
   return (
-    <div className="flex flex-1 flex-col px-4 pt-10" style={{ background: "linear-gradient(180deg, #f1ece6, #e9e2da)" }}>
+    <div className="flex flex-1 flex-col px-4 pt-10" style={{ background: "linear-gradient(180deg, var(--lock-a), var(--lock-b))" }}>
       <p className="text-center text-[15px] font-medium text-muted">{dateLabel}</p>
       <p className="display text-center text-[76px] leading-none tracking-[-0.04em]">
         {clock(time).replace(/ [AP]M$/, "")}
@@ -66,7 +66,7 @@ export function LockScreen({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-[22px] bg-white/85 p-3.5 shadow-[0_8px_30px_-12px_rgb(30_23_18/0.35)] backdrop-blur"
+              className="rounded-[22px] bg-surface/90 p-3.5 shadow-[0_8px_30px_-12px_rgb(30_23_18/0.35)] backdrop-blur"
             >
               <div className="flex items-center gap-2 text-[12px] text-muted">
                 <LogoMark size={18} />
@@ -187,7 +187,7 @@ export function OfferScreen({
             type="button"
             onClick={() => setClaimed(true)}
             disabled={claimed}
-            className="mt-4 w-full rounded-[14px] bg-[var(--ink)] py-3 text-[15px] font-semibold text-[var(--foam)] transition-transform active:scale-[0.98] disabled:bg-ok"
+            className="mt-4 w-full rounded-[14px] bg-text py-3 text-[15px] font-semibold text-bg transition-transform active:scale-[0.98] disabled:bg-ok disabled:text-on-ok"
           >
             {claimed ? `Claimed, valid till ${clock(offer.valid_until)}` : "Claim offer"}
           </button>

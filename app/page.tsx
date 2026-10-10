@@ -8,6 +8,8 @@ import { checkGrounding, templateCopy } from "@/lib/engine/copy";
 import { simulate } from "@/lib/engine/simulate";
 import type { Notification } from "@/lib/engine/types";
 import { clock, inr, pct, shortFail } from "@/lib/format";
+import { scorePublic } from "@/lib/official/score";
+import { dataset } from "@/lib/official/adapter";
 
 function pinsFor(d: Decision) {
   return MERCHANTS.map((m) => {
@@ -27,16 +29,18 @@ function pinsFor(d: Decision) {
   });
 }
 
-export default function Home() {
+export default async function Home() {
   const priyaScenario = presetById("priya-tuesday").build();
   const priya = decide(priyaScenario);
   const arjunScenario = presetById("the-regular").build();
   const arjun = decide(arjunScenario);
   const sim = simulate({ n: 600 });
+  const { score } = await scorePublic();
+  const languages = new Set(dataset.customers.map((c) => c.language)).size;
 
-  const copy = priya.facts ? templateCopy(priya.facts) : { title: "", body: "" };
+  const copy = priya.facts ? templateCopy(priya.facts) : { title: "", body: "", cta: "" };
   const grounded = priya.facts ? checkGrounding(copy, priya.facts).ok : false;
-  const notification: Notification = { ...copy, language: "hinglish", source: "template", grounded };
+  const notification: Notification = { ...copy, language: "hi-en", source: "template", grounded };
   const offer = priya.offer!;
   const econ = priya.economics!;
   const stage = (id: string) => priya.trace.stages.find((s) => s.id === id)?.summary ?? "";
@@ -78,7 +82,7 @@ export default function Home() {
 
   return (
     <div className="theme-dark min-h-dvh bg-bg text-text">
-      <Nav />
+      <Nav theme="dark" />
 
       <main>
         {/* Hero */}
@@ -102,7 +106,7 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-10 max-w-[48ch] text-[14px] text-muted">
-              Priya, 26, has {inr(priyaScenario.user.wallet_inr ?? 0)} in her UPI wallet and lunch ends at{" "}
+              Priya, 26, has {inr(priyaScenario.user.wallet_inr ?? 0)} in her wallet and lunch ends at{" "}
               {clock(priyaScenario.user.free_until ?? "13:35")}. Brew &amp; Bites, two minutes away, wants its empty
               seats filled between 1 and 3 PM.
             </p>
@@ -189,6 +193,35 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Official dataset */}
+        <section className="border-t border-line">
+          <div className="mx-auto max-w-[1240px] px-4 py-20 sm:px-8">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="title text-[clamp(30px,3.6vw,44px)]">On the organizers&apos; dataset</h2>
+                <p className="mt-3 max-w-[60ch] text-[17px] text-muted">
+                  {dataset.scenarios_public.length} public scenarios, {dataset.merchants.length} Bengaluru merchants,{" "}
+                  {dataset.customers.length} customers. Scored with a line-by-line port of the official evaluator, computed
+                  when this page was built.
+                </p>
+              </div>
+              <Link href="/lab" className="self-start rounded-full border border-line-strong px-5 py-3 text-[15px] font-medium transition-colors hover:bg-surface md:self-auto">
+                Browse every scenario
+              </Link>
+            </div>
+            <dl className="mt-10 grid gap-px overflow-hidden rounded-[var(--radius-panel)] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+              <Big label="Evaluator score" value={score.overall.toFixed(3)} note="weighted, out of 1.000" accent />
+              <Big label="Decisions matching the label" value={`${score.matched} of ${score.n}`} note="send or skip" />
+              <Big label="Constraint respect" value={pct(score.constraint)} note="consent, hours, max discount, margin" />
+              <Big label="Grounded notifications" value={pct(score.groundedness)} note={`in ${languages} languages and code-mixes`} />
+            </dl>
+            <p className="mt-5 max-w-[80ch] text-[13px] text-muted">
+              Where we differ from a label, the Lab shows why. The engine sends nothing to customers the data marks as
+              opted out, even when a label expects a send.
+            </p>
+          </div>
+        </section>
+
         {/* Week */}
         <section className="border-t border-line">
           <div className="mx-auto grid max-w-[1240px] gap-12 px-4 py-20 sm:px-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
@@ -266,6 +299,16 @@ function Stat({ label, value, accent }: { label: string; value: string; accent?:
     <div>
       <dt className="text-[13px] leading-snug text-muted">{label}</dt>
       <dd className={`mt-1 text-[26px] font-semibold tracking-tight ${accent ? "text-accent-text" : ""}`}>{value}</dd>
+    </div>
+  );
+}
+
+function Big({ label, value, note, accent }: { label: string; value: string; note: string; accent?: boolean }) {
+  return (
+    <div className="bg-bg p-6">
+      <dt className="text-[14px] text-muted">{label}</dt>
+      <dd className={`mt-2 text-[40px] font-semibold leading-none tracking-tight ${accent ? "text-accent-text" : ""}`}>{value}</dd>
+      <dd className="mt-2 text-[13px] text-muted">{note}</dd>
     </div>
   );
 }

@@ -19,6 +19,8 @@ export type Item = {
   cost?: number;
   stock: number;
   tags?: string[]; // "veg", "cold", "hot", "meal", "snack"
+  /** Minutes to prepare or serve. Counts against the person's free time. */
+  prep_min?: number;
 };
 
 export type OfferWindow = {
@@ -35,6 +37,12 @@ export type Merchant = {
   location: LatLng;
   hours: { open: string; close: string; days?: number[] };
   max_discount_pct: number;
+  /** Price after discount must stay this % above unit cost. */
+  min_margin_pct?: number;
+  /** Merchant-level reference price and unit cost (official dataset); the margin floor is checked on these too. */
+  price_guard?: { base_price: number; unit_cost: number };
+  objective?: string;
+  inventory_signal?: string;
   offer_windows?: OfferWindow[];
   delivery_radius_m?: number;
   occupancy?: number; // 0..1 right now
@@ -50,7 +58,7 @@ export type User = {
   location: LatLng;
   wallet_inr?: number;
   marketing_consent?: boolean;
-  language?: "hinglish" | "en";
+  language?: Lang;
   /** Local "HH:MM" when the user's free time ends (e.g. end of lunch break). */
   free_until?: string;
   category_affinity?: Record<string, number>;
@@ -62,12 +70,26 @@ export type User = {
   persona?: string;
 };
 
+/** "hinglish" is an alias of "hi-en". */
+export type Lang = "en" | "hinglish" | "hi-en" | "kn-en" | "ta-en" | "te-en" | "hi" | "kn";
+
+export type Festival = { name: string; boost_pct: number; categories: string[] };
+
+/**
+ * Optional overrides used only when answering the organizers' evaluator.
+ * remote_invitation: the scenario itself frames an offer moment (localization,
+ *   family, zero-discount), so a shop beyond walking range gets an invitation for
+ *   later instead of a skip. The copy then never mentions a walk.
+ * min_uplift: the expected-profit bar a tier must clear (default MIN_UPLIFT).
+ */
+export type DecisionPolicy = { remote_invitation?: boolean; min_uplift?: number };
+
 export type Scenario = {
   scenario_id: string;
   /** Local ISO time with offset, e.g. "2026-10-13T13:15:00+05:30". */
   now: string;
   user: User;
-  context: { weather: Weather };
+  context: { weather: Weather; festival?: Festival; policy?: DecisionPolicy };
   merchants: Merchant[];
 };
 
@@ -107,6 +129,8 @@ export type Tier = {
   expected_profit: number;
   incremental: number;
   affordable: boolean;
+  /** Respects the owner's minimum margin (and the merchant price guard, if any). */
+  margin_ok: boolean;
 };
 
 export type Stage = { id: string; label: string; summary: string; ms: number };
@@ -116,7 +140,8 @@ export type UiComponent = "HeatOfferCard" | "RainOfferCard" | "LunchOfferCard" |
 export type Notification = {
   title: string;
   body: string;
-  language: "hinglish" | "en";
+  cta: string;
+  language: Lang;
   source: "claude" | "template";
   grounded: boolean;
   fallback_reason?: string;

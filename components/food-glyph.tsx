@@ -97,6 +97,61 @@ export function FoodGlyph({ category, size = 72, className }: Props) {
           <path d="M22 30l4 12M32 28v14M42 30l-4 12" />
         </svg>
       );
+    case "restaurant":
+      return (
+        <svg {...common}>
+          <path d="M10 44a22 22 0 0 1 44 0z" />
+          <path d="M6 44h52" />
+          <path d="M32 22v-5" />
+          <circle cx="32" cy="15" r="2" />
+          <path d="M14 50h36" />
+        </svg>
+      );
+    case "pharmacy":
+      return (
+        <svg {...common}>
+          <rect x="12" y="12" width="40" height="40" rx="10" />
+          <path d="M32 22v20M22 32h20" />
+        </svg>
+      );
+    case "salon":
+      return (
+        <svg {...common}>
+          <circle cx="18" cy="46" r="7" />
+          <circle cx="40" cy="46" r="7" />
+          <path d="M23 41 48 10M35 41 14 14" />
+        </svg>
+      );
+    case "gym":
+      return (
+        <svg {...common}>
+          <path d="M18 32h28" />
+          <rect x="8" y="22" width="8" height="20" rx="3" />
+          <rect x="48" y="22" width="8" height="20" rx="3" />
+          <path d="M4 28v8M60 28v8" />
+        </svg>
+      );
+    case "grocery":
+      return (
+        <svg {...common}>
+          <path d="M12 22h40l-4 32H16z" />
+          <path d="M22 22v-4a10 10 0 0 1 20 0v4" />
+          <path d="M24 34v10M32 34v10M40 34v10" />
+        </svg>
+      );
+    case "dentist":
+      return (
+        <svg {...common}>
+          <path d="M20 10c-8 0-10 8-8 16 2 7 3 12 4 22 1 6 7 6 8 0l3-12c1-3 9-3 10 0l3 12c1 6 7 6 8 0 1-10 2-15 4-22 2-8 0-16-8-16-5 0-8 3-12 3s-7-3-12-3z" />
+        </svg>
+      );
+    case "wellness":
+      return (
+        <svg {...common}>
+          <path d="M32 52c-12-6-18-14-18-24 6 0 13 4 18 12 5-8 12-12 18-12 0 10-6 18-18 24z" />
+          <path d="M32 40c-4-8-4-18 0-26 4 8 4 18 0 26z" />
+        </svg>
+      );
     default:
       return (
         <svg {...common}>

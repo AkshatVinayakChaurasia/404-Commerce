@@ -1,0 +1,39 @@
+{
+  "dataset_name": "Decisioned Offer System Dataset v1",
+  "version": "1.1.0",
+  "city": "Bengaluru",
+  "timezone": "Asia/Kolkata",
+  "counts": {
+    "customers": 350,
+    "merchants": 100,
+    "catalog_items": 266,
+    "static_offers": 55,
+    "weather_hours": 168,
+    "festivals": 8,
+    "scenarios_public": 62,
+    "scenarios_holdout": 56,
+    "scenarios_holdout_blind": 56
+  },
+  "files": {
+    "customers": "data/customers.csv",
+    "merchants": "data/merchants.csv",
+    "catalog_items": "data/catalog_items.csv",
+    "static_offers": "data/static_offers.csv",
+    "weather_hourly": "data/weather_hourly.csv",
+    "festivals": "data/festivals.csv",
+    "scenarios_public": "data/scenarios_public.csv",
+    "scenarios_holdout": "eval/scenarios_holdout.csv",
+    "scenarios_holdout_blind": "eval/scenarios_holdout_blind.csv",
+    "evaluation_protocol": "docs/EVALUATION_PROTOCOL.md"
+  },
+  "notes": [
+    "No branding of any third-party platform.",
+    "Customers and merchants are synthetic / anonymized.",
+    "Holdout scenarios are for organizer evaluation only; participants should not train on them.",
+    "Language field indicates preferred UI language / code-mix.",
+    "Dynamic discount must respect merchant max_discount_pct and min_margin_pct.",
+    "Geospatial: all coordinates are in Bengaluru; use haversine for distance.",
+    "Labeled holdout is organizer-only. Blind holdout (no answers) may be given to participants for practice or leaderboard.",
+    "Evaluation has two stages: (1) automated backend on holdout, (2) live web demo + pitch to judges."
+  ]
+}
