@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AscenDex: PS-01 Commerce ("Priya's Tuesday")
 
-## Getting Started
+AscenDex is a decision engine for hyperlocal offers. For one person at one moment, it decides whether
+a nearby merchant should send an offer, which item to offer, how deep the discount should be, and
+what the notification should say (in Hinglish by default). It returns **skip** when an offer would
+only give margin away.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm test           # guardrail check: 1,000 synthetic requests, target 0 violations
+npm run presets    # print the six demo scenarios through the engine
+npm run build      # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Optional: copy `.env.example` to `.env.local` and set `ANTHROPIC_API_KEY`. The Lab can then let
+Claude write the copy. Every line still passes the grounding check, and the code falls back to a
+template on timeout (5 s), refusal, or any number the engine didn't decide.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | What it shows |
+|---|---|
+| `/` | The story. The hero map is a real engine run for Priya's Tuesday. |
+| `/lab` | **Decision Lab**, for judges. Each control calls `POST /api/solve` and renders the person checks, hard rules, score matrix, discount tiers, raw JSON and the copy prompt. |
+| `/customer` | The notification and offer card as the person sees them. The layout is picked from a fixed set (`HeatOfferCard`, `RainOfferCard`, `LunchOfferCard`, `EveningOfferCard`). |
+| `/merchant` | Brew & Bites owner view. Change the max discount or the offer window, re-run a simulated week, and compare. |
 
-## Learn More
+## API
 
-To learn more about Next.js, take a look at the following resources:
+`POST /api/solve`: the body follows the `Scenario` type in `lib/engine/types.ts`. Examples are in `samples/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+curl -X POST localhost:3000/api/solve -H "content-type: application/json" --data @samples/priya-tuesday.json
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The response contains `action` (`send` | `skip`), `reason`, `offer`, `notification`, `ui_configuration`,
+`economics`, `trace` and `latency_ms`. Malformed input returns a safe skip and never a 500. Add
+`?claude=1` to request Claude copy.
 
-## Deploy on Vercel
+`POST /api/simulate` takes `{ n, seed, focus, overrides }` and returns the offline evaluation used by
+`/merchant`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## How a decision is made (`lib/engine/solve.ts`)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Person checks.** Consent, location, time and weather must be present. Missing or `undefined`
+   values cause a skip.
+2. **Hard rules per merchant.** The merchant must be open now (including midnight-spanning hours and
+   closed days) and inside the owner's offer window. It needs stock, a max discount of at least 5%, a
+   walk of 15 minutes or less, and a round trip plus 10 minutes that fits the person's free time.
+3. **Scoring.** The baseline purchase probability is a logistic function of taste, habit, walking
+   minutes, rating and weather/time context. The weights live in `lib/engine/model.ts`.
+4. **Discount.** Every 5% tier up to the owner's max is tried. Each tier's incremental profit is
+   `p(d)·(price(1−d) − cost) − p₀·price·margin − send cost`. The best tier wins only if it clears ₹4;
+   otherwise the engine skips. "Sure things" (high p₀) and "lost causes" both skip for this reason.
+5. **Copy.** Template or Claude copy, then `checkGrounding()`: every number must be one the engine
+   decided.
+
+## Honest limits
+
+- Merchants, people and the week are **synthetic** (`lib/data/koramangala.ts`). To use the official
+  dataset, replace the exports in that file or map it to the `Scenario` contract.
+- The simulator's response model is ours. It adds per-person noise that the engine can't see, but it
+  is **not** the hackathon's hidden simulator. The UI labels these numbers as simulated.
+- The model weights are starting hypotheses. Tune them once real outcomes are available.
