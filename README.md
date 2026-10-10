@@ -1,4 +1,4 @@
-# AscenDex: PS-01 Commerce ("Priya's Tuesday")
+# AscenDex: PS-01 Commerce 
 
 AscenDex is a decision engine for hyperlocal offers. For one customer, one merchant and one moment, it
 decides whether to send an offer, which item to offer, how deep the discount should be, and what the
