@@ -60,6 +60,9 @@ export async function POST(request: Request) {
     return Response.json({ profile, store: store.kind });
   } catch (e) {
     const msg = (e as Error).message;
-    return bad(/duplicate key|unique/i.test(msg) ? "That shop was just taken by another account" : `Couldn't save your profile: ${msg}`, 502);
+    if (/duplicate key|unique/i.test(msg)) return bad("That shop was just taken by another account", 409);
+    // The technical cause is visible in /api/health; people get a plain message.
+    console.error("profile save failed:", msg);
+    return bad("Your profile couldn't be saved right now. Please try again in a moment.", 503);
   }
 }

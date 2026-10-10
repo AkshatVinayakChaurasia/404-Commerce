@@ -33,7 +33,7 @@ export function AccountMenu() {
     );
   }
 
-  const name = me.user.name ?? me.user.email ?? "Account";
+  const name = me.user.name ?? "Account";
   const role = me.profile?.role;
   return (
     <div ref={ref} className="relative">

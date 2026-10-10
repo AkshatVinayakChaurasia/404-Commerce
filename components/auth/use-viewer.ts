@@ -5,8 +5,8 @@ import { useCallback, useEffect, useState } from "react";
 export type Me = {
   login: boolean;
   store: "supabase" | "memory";
-  store_problem: string | null;
-  user: { id: string; email: string | null; name: string | null; avatar_url: string | null } | null;
+  saved: boolean;
+  user: { id: string; name: string | null; avatar_url: string | null } | null;
   profile: {
     role: "customer" | "merchant" | null;
     display_name: string | null;

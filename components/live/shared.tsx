@@ -57,12 +57,13 @@ export function ClockChip({ moment, mode }: { moment: LiveMoment | null; mode: C
 
 export function StoreNote({ store, error }: { store: "supabase" | "memory" | null; error?: string | null }) {
   if (!store) return null;
-  if (error) return <p className="rounded-[var(--radius-control)] bg-bad-tint px-3 py-2 text-[13px] text-bad">Database error: {error}</p>;
+  // The technical reason is for developers (/api/health); people see what it means for them.
+  if (error) return <p className="rounded-[var(--radius-control)] bg-bad-tint px-3 py-2 text-[13px] text-bad">Claims can&apos;t be saved right now. The demo still works; try again in a moment.</p>;
   return store === "supabase" ? (
     <p className="text-[12.5px] text-muted">Claims and rules are saved to the database.</p>
   ) : (
     <p className="text-[12.5px] text-muted">
-      No database connected: claims and rules live in server memory and reset on restart. Add the Supabase keys to keep them.
+      Demo storage: claims and rules are kept in server memory and reset when the server restarts.
     </p>
   );
 }

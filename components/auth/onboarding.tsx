@@ -97,13 +97,12 @@ export function Onboarding({
     <div className="space-y-6">
       <div>
         <h1 className="title text-[clamp(28px,3.6vw,42px)]">{me.profile?.role ? "Your profile" : `Welcome, ${(name || "there").split(" ")[0]}`}</h1>
-        <p className="mt-2 text-[16px] text-muted">Signed in as {me.user.email}. Choose how you use AscenDex.</p>
+        <p className="mt-2 text-[16px] text-muted">Signed in with Google. Choose how you use AscenDex.</p>
       </div>
 
-      {me.store === "memory" && (
+      {!me.saved && (
         <p className="rounded-[var(--radius-control)] bg-accent-tint px-4 py-3 text-[13.5px] text-accent-text">
-          The database isn&apos;t connected yet ({me.store_problem ?? "no secret key"}), so this profile is kept in server
-          memory only.
+          Accounts aren&apos;t being saved permanently on this server yet. You can set up your profile, but it may reset.
         </p>
       )}
 
